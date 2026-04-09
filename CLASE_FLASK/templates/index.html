@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mini Tienda</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Mini Tienda</h1>
+
+    <div class="top-bar">
+        <input type="text" id="buscador" placeholder="Buscar producto...">
+        <span id="contador"></span>
+    </div>
+
+    <form id="formulario">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="number" id="precio" placeholder="Precio" required>
+        <input type="text" id="categoria" placeholder="Categoría" required>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <div id="productos" class="productos"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

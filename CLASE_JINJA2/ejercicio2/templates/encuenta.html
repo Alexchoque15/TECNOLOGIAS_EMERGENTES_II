@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encuesta</title>
+</head>
+<body>
+
+    <h2>Encuesta</h2>
+
+    <form action="/resultado" method="POST">
+
+        <input type="text" name="nombre" placeholder="Nombre" required><br><br>
+
+        <select name="lenguaje">
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Java</option>
+        </select><br><br>
+
+        <input type="radio" name="experiencia" value="Principiante" required> Principiante<br>
+        <input type="radio" name="experiencia" value="Intermedio"> Intermedio<br>
+        <input type="radio" name="experiencia" value="Avanzado"> Avanzado<br><br>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+</body>
+</html>

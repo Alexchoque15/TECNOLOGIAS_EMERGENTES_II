@@ -10,12 +10,12 @@ El objetivo principal es aprender cómo funciona el motor de plantillas **Jinja2
 
 Este proyecto incluye:
 
-* ✔ Uso de variables dinámicas (`{{ }}`)
-* ✔ Control de flujo (`{% if %}`, `{% for %}`)
-* ✔ Formularios HTML con método POST
-* ✔ Renderización de datos desde Flask
-* ✔ Herencia de plantillas (estructura reutilizable)
-* ✔ Organización profesional del código
+*  Uso de variables dinámicas (`{{ }}`)
+*  Control de flujo (`{% if %}`, `{% for %}`)
+*  Formularios HTML con método POST
+*  Renderización de datos desde Flask
+*  Herencia de plantillas (estructura reutilizable)
+*  Organización profesional del código
 
 ---
 

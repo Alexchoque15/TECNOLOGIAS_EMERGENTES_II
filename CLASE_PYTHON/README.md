@@ -7,7 +7,7 @@ Este repositorio contiene la guía práctica y el código base del inicio en el 
 ## Configuración del Entorno
 
 ### 1. Instalación de Python
-Se utilizó la versión **3.12.x**. Puntos críticos durante la instalación en Windows:
+Se utilizó la versión **3.14.3**. Puntos críticos durante la instalación en Windows:
 * **PATH:** Activación de `Add python.exe to PATH` para ejecución global en terminal.
 * **Privilegios:** Uso de privilegios de administrador para la instalación.
 * **MAX_PATH:** Deshabilitar el límite de 260 caracteres para evitar errores en directorios profundos.

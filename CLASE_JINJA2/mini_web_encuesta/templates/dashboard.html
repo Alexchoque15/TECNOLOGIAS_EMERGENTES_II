@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> Dashboard</h2>
+
+<div class="grid">
+
+    <div class="card">
+        <h3>Total respuestas</h3>
+        <p class="big-number">{{ total }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Lenguajes</h3>
+
+        {% for lang, cantidad in conteo.items() %}
+            <div class="bar-container">
+                <span>{{ lang }}</span>
+                <div class="bar" style="width: {{ porcentajes[lang] }}%">
+                    {{ cantidad }}
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<div class="card">
+    <h3>Usuarios</h3>
+
+    <ul class="user-list">
+        {% for r in respuestas %}
+            <li>
+                <strong>{{ r.nombre }}</strong>
+                <span>{{ r.lenguaje }}</span>
+                <small>{{ r.experiencia }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

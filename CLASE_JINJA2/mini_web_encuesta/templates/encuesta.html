@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Encuesta de Desarrolladores</h2>
+
+    <form action="/resultado" method="POST">
+
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+
+        <select name="lenguaje">
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Java</option>
+            <option>C++</option>
+        </select>
+
+        <select name="experiencia">
+            <option>Principiante</option>
+            <option>Intermedio</option>
+            <option>Avanzado</option>
+        </select>
+
+        <button type="submit">Enviar respuesta</button>
+    </form>
+</div>
+{% endblock %}

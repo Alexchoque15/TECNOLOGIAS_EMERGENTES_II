@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Respuesta guardada</h2>
+
+    <div class="result-box">
+        <p><strong>{{ data.nombre }}</strong></p>
+        <p>{{ data.lenguaje }}</p>
+        <p>{{ data.experiencia }}</p>
+    </div>
+
+    <a class="btn" href="/dashboard">Ver Dashboard</a>
+</div>
+{% endblock %}

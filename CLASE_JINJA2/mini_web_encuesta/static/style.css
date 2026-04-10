@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+    color: white;
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: #00d4ff;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 40px;
+}
+
+/* CARDS */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* FORM */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+button, .btn {
+    background: #00d4ff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+/* BARRAS */
+.bar-container {
+    margin: 10px 0;
+}
+
+.bar {
+    background: #00d4ff;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: right;
+    font-size: 12px;
+}
+
+/* LISTA */
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    margin: 5px 0;
+    border-radius: 8px;
+}
+
+/* RESULT */
+.result-box {
+    background: rgba(0,212,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* NUMERO GRANDE */
+.big-number {
+    font-size: 40px;
+    font-weight: bold;
+}

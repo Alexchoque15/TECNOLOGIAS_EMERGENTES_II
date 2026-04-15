@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ver Tablas</title>
+</head>
+<body>
+
+<h1> Datos del Zoologico</h1>
+
+<h2> Animales</h2>
+<ul>
+    {% for a in animales %}
+        <li>{{ a['id'] }} - {{ a['nombre'] }} - {{ a['especie'] }}</li>
+    {% endfor %}
+</ul>
+
+<h2> Hábitats</h2>
+<ul>
+    {% for h in habitats %}
+        <li>{{ h['id'] }} - {{ h['nombre'] }} - {{ h['tipo_clima'] }}</li>
+    {% endfor %}
+</ul>
+
+<h2> Cuidadores</h2>
+<ul>
+    {% for c in cuidadores %}
+        <li>{{ c['id'] }} - {{ c['nombre'] }} - {{ c['experiencia'] }} años</li>
+    {% endfor %}
+</ul>
+
+<h2> Asignaciones</h2>
+<ul>
+    {% for a in asignaciones %}
+        <li>Animal ID: {{ a['animal_id'] }} → Hábitat ID: {{ a['habitat_id'] }}</li>
+    {% endfor %}
+</ul>
+
+<br>
+<a href="/">⬅ Volver</a>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>✏ Editar Animal</h2>
+
+<form method="POST">
+    <input name="nombre" value="{{ animal[1] }}" class="form-control mb-2">
+    <input name="especie" value="{{ animal[2] }}" class="form-control mb-2">
+    <input name="fecha" value="{{ animal[3] }}" class="form-control mb-2">
+
+    <button class="btn btn-warning">Actualizar</button>
+</form>
+
+{% endblock %}

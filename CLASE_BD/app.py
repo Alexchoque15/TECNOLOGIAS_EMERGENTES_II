@@ -132,3 +132,4 @@ for row in cursor.execute("SELECT * FROM asignaciones"):
 
 # CERRAR
 conn.close()
+

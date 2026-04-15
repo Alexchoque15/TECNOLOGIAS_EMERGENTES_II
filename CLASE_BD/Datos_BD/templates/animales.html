@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Animales</h2>
+
+<a href="/crear" class="btn btn-success mb-3"> Nuevo Animal</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especie</th>
+        <th>Acciones</th>
+    </tr>
+
+    {% for a in animales %}
+    <tr>
+        <td>{{ a[0] }}</td>
+        <td>{{ a[1] }}</td>
+        <td>{{ a[2] }}</td>
+        <td>
+            <a href="/editar/{{ a[0] }}" class="btn btn-warning btn-sm">✏</a>
+            <a href="/eliminar/{{ a[0] }}" class="btn btn-danger btn-sm">🗑</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

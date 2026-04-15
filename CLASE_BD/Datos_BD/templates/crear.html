@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Crear Animal</h2>
+
+<form method="POST">
+
+    <!-- NOMBRE -->
+    <label class="form-label">Nombre del animal</label>
+    <input 
+        name="nombre" 
+        class="form-control mb-2" 
+        placeholder="Ej: Simba"
+        required
+    >
+    <div class="form-text">
+        Ingresa el nombre del animal (ej: Simba, Dumbo, Higor, etc.)
+    </div>
+
+    <!-- ESPECIE -->
+    <label class="form-label mt-3">Especie</label>
+    <input 
+        name="especie" 
+        class="form-control mb-2" 
+        placeholder="Ej: León"
+        required
+    >
+    <div class="form-text">
+        Especifica la especie (León, Elefante, Tigre, etc.)
+    </div>
+
+    <!-- FECHA -->
+    <label class="form-label mt-3">Fecha de nacimiento</label>
+    <input 
+        name="fecha" 
+        type="date" 
+        class="form-control mb-3"
+        required
+    >
+    <div class="form-text">
+        Selecciona la fecha en que nació el animal
+    </div>
+
+    <button class="btn btn-primary">Guardar</button>
+
+</form>
+
+{% endblock %}

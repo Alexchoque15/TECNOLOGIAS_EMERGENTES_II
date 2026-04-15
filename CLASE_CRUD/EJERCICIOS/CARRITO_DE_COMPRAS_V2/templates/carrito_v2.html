@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Carrito v2</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form method="POST" action="/agregar" class="row g-2">
+    <div class="col">
+        <input type="text" name="producto" class="form-control" placeholder="Producto">
+    </div>
+    <div class="col">
+        <input type="number" name="precio" class="form-control" placeholder="Precio">
+    </div>
+    <div class="col">
+        <input type="number" name="cantidad" class="form-control" placeholder="Cantidad">
+    </div>
+    <div class="col">
+        <button class="btn btn-success">Agregar</button>
+    </div>
+</form>
+
+<a href="/limpiar" class="btn btn-danger mt-3">Limpiar</a>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in carrito %}
+        <tr>
+            <td>{{ item.producto }}</td>
+            <td>{{ item.precio }}</td>
+            <td>{{ item.cantidad }}</td>
+            <td>{{ item.precio * item.cantidad }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Total general: {{ total }}</h3>
+
+{% endblock %}

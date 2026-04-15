@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>CRUD Contactos</h1>
+
+<form method="POST" action="/agregar" class="row g-2">
+    <div class="col">
+        <input name="nombre" class="form-control" placeholder="Nombre">
+    </div>
+    <div class="col">
+        <input name="correo" class="form-control" placeholder="Correo">
+    </div>
+    <div class="col">
+        <input name="celular" class="form-control" placeholder="Celular">
+    </div>
+    <div class="col">
+        <button class="btn btn-primary">Agregar</button>
+    </div>
+</form>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for c in contactos %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.correo }}</td>
+            <td>{{ c.celular }}</td>
+            <td>
+                <a href="/editar/{{ c.id }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/eliminar/{{ c.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

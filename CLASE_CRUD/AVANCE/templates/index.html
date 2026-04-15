@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Sesiones y Cookies </h1>
+<p>{{ mensaje }}</p>
+<a href="/set_data">Guardar datos en session</a>
+<br>
+<a href="/get_data">Recuperar datos de session</a>
+<br>
+<a href="/clear_session">Borrar la session</a>
+<br>
+<a href="/set_cookie">Guardar cookies</a>
+<br>
+<a href="/get_cookie">Recuperar cookies</a>
+<br>
+<a href="{{ url_for('eliminar_cookies')}}">Eliminar cookies</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Carrito de compras</h1>
+
+<form method="POST" action="/agregar" class="mb-3">
+    <input type="text" name="producto" class="form-control" placeholder="Producto">
+    <button class="btn btn-primary mt-2">Agregar</button>
+</form>
+
+<a href="/limpiar" class="btn btn-danger mb-3">Limpiar carrito</a>
+
+<ul class="list-group">
+    {% for p in carrito %}
+    <li class="list-group-item">{{ p }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

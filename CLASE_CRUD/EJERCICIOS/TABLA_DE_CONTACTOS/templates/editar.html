@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Editar contacto</h1>
+
+<form method="POST">
+    <input name="nombre" class="form-control mb-2" value="{{ contacto.nombre }}">
+    <input name="correo" class="form-control mb-2" value="{{ contacto.correo }}">
+    <input name="celular" class="form-control mb-2" value="{{ contacto.celular }}">
+
+    <button class="btn btn-success">Guardar cambios</button>
+</form>
+
+{% endblock %}source venv/Scripts/activate

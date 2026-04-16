@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow p-4">
+<h3><i class="bi bi-envelope"></i> Contacto</h3>
+
+<form method="POST">
+
+<div class="mb-3">
+<input name="nombre" class="form-control" placeholder="Nombre" required>
+</div>
+
+<div class="mb-3">
+<input name="email" class="form-control" placeholder="Email" required>
+</div>
+
+<div class="mb-3">
+<textarea name="mensaje" class="form-control" placeholder="Mensaje" required></textarea>
+</div>
+
+<button class="btn btn-success w-100">
+<i class="bi bi-send"></i> Enviar
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

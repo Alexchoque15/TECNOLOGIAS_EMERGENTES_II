@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card p-4">
+<h3><i class="bi bi-pencil"></i> Editar Contacto</h3>
+
+<form method="POST">
+
+<input name="nombre" class="form-control mb-2" value="{{ contacto.nombre }}">
+<input name="email" class="form-control mb-2" value="{{ contacto.email }}">
+<textarea name="mensaje" class="form-control mb-2">{{ contacto.mensaje }}</textarea>
+
+<button class="btn btn-primary">
+<i class="bi bi-save"></i> Guardar cambios
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

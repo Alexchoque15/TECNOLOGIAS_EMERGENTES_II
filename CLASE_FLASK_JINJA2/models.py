@@ -11,6 +11,3 @@ class Contacto(db.Model):
     email = db.Column(db.String(100), nullable=False)
     mensaje = db.Column(db.Text, nullable=False)
     fecha = db.Column(db.DateTime, default=datetime.utcnow)
-
-    def __repr__(self):
-        return f"<Contacto {self.nombre}>"

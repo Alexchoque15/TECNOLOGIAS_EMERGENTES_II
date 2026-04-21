@@ -12,6 +12,7 @@ app.secret_key = os.environ.get("SECRET_KEY", "dev_key_seguro")
 app.config.from_object("config")
 db.init_app(app)
 
+# Crear tablas (solo si no existen)
 with app.app_context():
     db.create_all()
 
@@ -22,7 +23,6 @@ def email_valido(email):
 def index():
     return render_template("index.html")
 
-# CREATE
 @app.route("/contacto", methods=["GET", "POST"])
 def contacto():
     if request.method == "POST":
@@ -52,13 +52,11 @@ def contacto():
 
     return render_template("contacto.html")
 
-# READ
 @app.route("/contactos")
 def ver_contactos():
     contactos = Contacto.query.order_by(Contacto.id.desc()).all()
     return render_template("ver_contactos.html", contactos=contactos)
 
-# UPDATE
 @app.route("/editar/<int:id>", methods=["GET", "POST"])
 def editar(id):
     contacto = Contacto.query.get_or_404(id)
@@ -84,7 +82,6 @@ def editar(id):
 
     return render_template("editar.html", contacto=contacto)
 
-# DELETE
 @app.route("/eliminar/<int:id>")
 def eliminar(id):
     contacto = Contacto.query.get_or_404(id)
@@ -116,5 +113,4 @@ def dashboard():
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run()

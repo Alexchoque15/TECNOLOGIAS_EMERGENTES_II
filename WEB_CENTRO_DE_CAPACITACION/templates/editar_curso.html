@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow">
+
+    <h2 class="text-2xl font-bold mb-6 text-center">Editar Curso</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-4">
+
+        <!-- TITULO -->
+        <input name="titulo"
+               value="{{ curso[1] }}"
+               class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+        <!-- DESCRIPCION -->
+        <textarea name="descripcion"
+                  class="w-full p-3 border rounded h-32 focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ curso[2] }}</textarea>
+
+        <!-- PRECIO -->
+        <input name="precio"
+               value="{{ curso[3] }}"
+               class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+        <!-- PORTADA ACTUAL -->
+        <div>
+            <p class="font-semibold mb-2">Portada actual</p>
+
+            {% if curso[4] %}
+                <img src="{{ curso[4] }}"
+                     class="w-full h-48 object-cover rounded shadow mb-3">
+            {% else %}
+                <div class="bg-gray-200 p-4 text-center rounded mb-3">
+                    No hay imagen de portada
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- NUEVA PORTADA -->
+        <div>
+            <label class="font-semibold">Cambiar portada</label>
+            <input type="file"
+                   name="imagen"
+                   class="w-full p-2 border rounded bg-white">
+        </div>
+
+        <!-- BOTÓN -->
+        <button class="w-full bg-indigo-600 text-white py-3 rounded hover:bg-indigo-700 transition">
+            Guardar cambios
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

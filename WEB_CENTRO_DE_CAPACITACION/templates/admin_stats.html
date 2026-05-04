@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-3xl font-bold mb-6">Estadísticas</h2>
+
+<div class="grid md:grid-cols-3 gap-6 mb-8">
+
+    <div class="bg-white p-6 rounded shadow">
+        <h3>Usuarios</h3>
+        <p class="text-3xl font-bold">{{ usuarios }}</p>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow">
+        <h3>Cursos</h3>
+        <p class="text-3xl font-bold">{{ cursos }}</p>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow">
+        <h3>Inscripciones</h3>
+        <p class="text-3xl font-bold">{{ inscripciones }}</p>
+    </div>
+
+</div>
+
+<h3 class="text-xl font-bold mb-4">Cursos más populares</h3>
+
+<table class="w-full bg-white rounded shadow">
+<thead>
+<tr class="bg-gray-200">
+    <th class="p-3">Curso</th>
+    <th class="p-3">Inscritos</th>
+</tr>
+</thead>
+
+<tbody>
+{% for c in populares %}
+<tr class="border-b">
+    <td class="p-3">{{ c[0] }}</td>
+    <td class="p-3">{{ c[1] }}</td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+body {
+    font-family: 'Segoe UI';
+    margin: 0;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #3b82f6;
+    color: white;
+}
+
+.header a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px;
+    background: linear-gradient(135deg, #60a5fa, #38bdf8);
+    color: white;
+}
+
+.cursos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    background: #22c55e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background: #16a34a;
+}
+
+.tabla {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla th {
+    background: #3b82f6;
+    color: white;
+    padding: 12px;
+}
+
+.tabla td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla tr:hover {
+    background: #f1f5f9;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.navbar.scrolled {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #6366f1, #22d3ee);
+    color: white;
+}
+
+.form-container {
+    margin-top: 120px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #6366f1;
+    color: white;
+    border: none;
+}

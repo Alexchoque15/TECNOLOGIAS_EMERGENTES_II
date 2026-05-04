@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-2xl font-bold mb-6">Cursos favoritos</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+{% for curso in cursos %}
+
+<div class="bg-white rounded-xl shadow overflow-hidden">
+
+    <img src="{{ curso['imagen'] }}" class="h-40 w-full object-cover">
+
+    <div class="p-4">
+
+        <h3 class="font-bold">{{ curso['titulo'] }}</h3>
+
+        <p class="text-indigo-600 font-bold mb-3">
+            ${{ curso['precio'] }}
+        </p>
+
+        <a href="/curso/{{ curso['id'] }}"
+           class="block bg-indigo-600 text-white text-center py-2 rounded">
+            Ver curso
+        </a>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-3xl font-bold mb-8 flex items-center gap-2">
+    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor">
+        <path d="M3 3h18v18H3V3z"/>
+    </svg>
+    Dashboard
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6 mb-10">
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-2 text-gray-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor"><path d="M4 6h16"/></svg>
+            Cursos inscritos
+        </div>
+        <p class="text-3xl font-bold text-indigo-600 mt-2">{{ inscritos }}</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-2 text-gray-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor"><path d="M12 21l-8-8 8-8"/></svg>
+            Favoritos
+        </div>
+        <p class="text-3xl font-bold text-red-500 mt-2">{{ favoritos }}</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-2 text-gray-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor"><path d="M5 12h14"/></svg>
+            Pagos
+        </div>
+        <p class="text-3xl font-bold text-green-500 mt-2">{{ pagos }}</p>
+    </div>
+
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow">
+    <h3 class="font-bold mb-4">Actividad general</h3>
+    <canvas id="grafica"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('grafica');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Cursos', 'Favoritos', 'Pagos'],
+        datasets: [{
+            label: 'Resumen',
+            data: [{{ inscritos }}, {{ favoritos }}, {{ pagos }}],
+            backgroundColor: ['#4f46e5', '#ef4444', '#22c55e']
+        }]
+    }
+});
+</script>
+
+{% endblock %}

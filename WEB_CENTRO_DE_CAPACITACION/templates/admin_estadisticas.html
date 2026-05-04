@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-3xl font-bold mb-6">Panel de Estadísticas</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+
+    <div class="bg-white p-5 rounded-xl shadow text-center">
+        <p class="text-gray-500">Usuarios</p>
+        <h3 class="text-2xl font-bold text-indigo-600">{{ usuarios }}</h3>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow text-center">
+        <p class="text-gray-500">Cursos</p>
+        <h3 class="text-2xl font-bold text-indigo-600">{{ cursos }}</h3>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow text-center">
+        <p class="text-gray-500">Inscripciones</p>
+        <h3 class="text-2xl font-bold text-indigo-600">{{ inscripciones }}</h3>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow text-center">
+        <p class="text-gray-500">Pagos</p>
+        <h3 class="text-2xl font-bold text-green-600">{{ pagos }}</h3>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow text-center">
+        <p class="text-gray-500">Favoritos</p>
+        <h3 class="text-2xl font-bold text-red-500">{{ favoritos }}</h3>
+    </div>
+
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow mb-8">
+
+    <h3 class="text-xl font-bold mb-4">Actividad reciente</h3>
+
+    <div class="overflow-x-auto">
+
+        <table class="w-full text-left">
+
+            <thead>
+                <tr class="border-b text-gray-600">
+                    <th class="py-2">Usuario</th>
+                    <th>Curso</th>
+                    <th>Fecha</th>
+                    <th>Progreso</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for a in actividad %}
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="py-2">{{ a[0] }}</td>
+                    <td>{{ a[1] }}</td>
+                    <td>{{ a[2] }}</td>
+                    <td>
+                        <span class="px-2 py-1 rounded bg-indigo-100 text-indigo-700">
+                            {{ a[3] }}%
+                        </span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class="flex justify-end">
+
+    <form method="POST" action="/admin_limpiar_datos"
+          onsubmit="return confirm('¿Seguro que deseas borrar todos los datos de usuarios?')">
+
+        <button class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition">
+            Limpiar datos
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flex justify-center items-center h-[70vh]">
+
+<div class="bg-white p-8 rounded-xl shadow w-80">
+    <h2 class="text-2xl font-bold mb-4 text-center">Registro</h2>
+
+    <form method="POST" class="space-y-4">
+        <input type="text" name="nombre" placeholder="Nombre"
+                class="w-full p-2 border rounded">
+
+        <input type="email" name="email" placeholder="Correo"
+                class="w-full p-2 border rounded">
+
+        <input type="password" name="password" placeholder="Contraseña"
+                class="w-full p-2 border rounded">
+
+        <button class="w-full bg-indigo-600 text-white py-2 rounded">
+            Registrarse
+        </button>
+    </form>
+</div>
+
+</div>
+
+{% endblock %}

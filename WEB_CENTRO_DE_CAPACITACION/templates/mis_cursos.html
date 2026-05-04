@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-2xl font-bold mb-6">Mis cursos</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+{% for curso in cursos %}
+
+<div class="bg-white p-4 rounded-xl shadow">
+
+    <h3 class="font-bold text-lg">{{ curso[1] }}</h3>
+
+    <p class="text-sm text-gray-500 mb-2">
+        Precio: ${{ curso[2] }}
+    </p>
+
+    <!-- PROGRESO -->
+    <div class="w-full bg-gray-200 h-2 rounded mb-2">
+        <div class="bg-indigo-600 h-2 rounded"
+             style="width: {{ curso[3] }}%"></div>
+    </div>
+
+    <p class="text-sm mb-3">
+        Progreso: {{ curso[3] }}%
+    </p>
+
+    <!-- COMPLETADO -->
+    {% if curso[4] %}
+
+        <span class="text-green-600 font-bold block mb-2">
+            Curso completado
+        </span>
+
+        <!-- CERTIFICADO -->
+        <a href="/certificado/{{ curso[0] }}"
+           class="block bg-indigo-600 text-white text-center py-2 rounded hover:bg-indigo-700">
+            Ver certificado
+        </a>
+
+    {% else %}
+
+        <!-- COMPLETAR -->
+        <a href="/completar/{{ curso[0] }}"
+           class="block bg-green-600 text-white text-center py-2 rounded hover:bg-green-700">
+            Completar curso
+        </a>
+
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

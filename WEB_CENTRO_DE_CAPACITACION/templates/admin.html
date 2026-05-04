@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-3xl font-bold mb-6">Panel Admin</h2>
+
+<div class="flex gap-4 mb-6">
+    <a href="/crear_curso" class="bg-green-500 text-white px-4 py-2 rounded">
+        + Nuevo Curso
+    </a>
+
+    <a href="/admin_estadisticas" class="bg-indigo-500 text-white px-4 py-2 rounded">
+        Ver estadísticas
+    </a>
+</div>
+
+<div class="bg-white rounded shadow overflow-hidden">
+
+<table class="w-full text-center">
+
+<thead class="bg-gray-200">
+<tr>
+    <th class="p-3">Curso</th>
+    <th class="p-3">Precio</th>
+    <th class="p-3">Acciones</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for curso in cursos %}
+<tr class="border-b hover:bg-gray-50 transition">
+
+    <td class="p-3">{{ curso[1] }}</td>
+    <td class="p-3">${{ curso[3] }}</td>
+
+    <td class="p-3 space-x-2">
+
+        <a href="/editar_curso/{{ curso[0] }}"
+            class="bg-yellow-400 px-3 py-1 rounded text-black inline-block">
+            Editar
+        </a>
+
+        <a href="/eliminar_curso/{{ curso[0] }}"
+            onclick="return confirm('¿Eliminar curso?')"
+            class="bg-red-500 text-white px-3 py-1 rounded inline-block">
+            Eliminar
+        </a>
+
+    </td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>DevAcademy</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+<header id="navbar" class="fixed w-full z-50 bg-white/90 backdrop-blur shadow-sm">
+    <div class="flex justify-between items-center px-8 py-4">
+
+        <h1 class="text-2xl font-bold text-indigo-600">
+            DevAcademy
+        </h1>
+
+        <nav class="flex items-center gap-6 text-sm">
+
+            <a href="/" class="text-gray-700 hover:text-indigo-600">
+                Inicio
+            </a>
+
+            <a href="/favoritos" class="flex items-center gap-1 text-gray-700 hover:text-indigo-600">
+                Favoritos
+            </a>
+
+            {% if session.user_id %}
+
+                <a href="/mis_cursos" class="text-gray-700 hover:text-indigo-600">
+                    Mis cursos
+                </a>
+
+                {% if session.rol == 'admin' %}
+                    <a href="/admin" class="text-red-500 font-semibold">
+                        Admin
+                    </a>
+                {% endif %}
+
+                <span class="text-gray-600">
+                    {{ session.nombre }}
+                </span>
+
+                <a href="/logout" class="text-gray-700 hover:text-indigo-600">
+                    Salir
+                </a>
+
+            {% else %}
+
+                <a href="/login" class="text-gray-700 hover:text-indigo-600">
+                    Login
+                </a>
+
+                <a href="/registro" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">
+                    Registro
+                </a>
+
+            {% endif %}
+
+        </nav>
+    </div>
+</header>
+
+<main class="pt-24 px-6">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

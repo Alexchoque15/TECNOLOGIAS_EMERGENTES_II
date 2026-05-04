@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
+    <!-- IZQUIERDA: CONTENIDO -->
+    <div class="md:col-span-2 bg-white p-6 rounded-xl shadow">
+
+        <!-- TITULO -->
+        <h2 class="text-3xl font-bold mb-4">{{ curso[1] }}</h2>
+
+        <!-- PORTADA -->
+        <div class="mb-6">
+
+            {% if curso[4] %}
+                <img src="{{ curso[4] }}"
+                     class="w-full h-96 object-cover rounded-xl shadow">
+            {% else %}
+                <div class="bg-gray-200 p-6 text-center rounded-xl">
+                    Este curso no tiene imagen de portada
+                </div>
+            {% endif %}
+
+        </div>
+
+        <!-- DESCRIPCIÓN -->
+        <p class="text-gray-700 leading-relaxed mb-6">
+            {{ curso[2] }}
+        </p>
+
+    </div>
+
+    <!-- INSCRIPCIÓN -->
+    <div class="bg-white p-6 rounded-xl shadow h-fit sticky top-24">
+
+        <!-- PRECIO -->
+        <p class="text-3xl font-bold text-indigo-600 mb-4">
+            ${{ curso[3] }}
+        </p>
+
+        <!-- FORMULARIO -->
+        <form method="POST" action="/inscribirse/{{ curso[0] }}" class="space-y-4">
+
+            <!-- MÉTODOS DE PAGO -->
+            <div class="bg-gray-100 p-4 rounded">
+
+                <h3 class="font-bold mb-3">Método de pago</h3>
+
+                <label class="block mb-2">
+                    <input type="radio" name="metodo_pago" value="tarjeta"
+                           onclick="mostrarPago('tarjeta')" required>
+                    Tarjeta
+                </label>
+
+                <label class="block mb-2">
+                    <input type="radio" name="metodo_pago" value="paypal"
+                           onclick="mostrarPago('paypal')">
+                    PayPal
+                </label>
+
+                <label class="block mb-2">
+                    <input type="radio" name="metodo_pago" value="efectivo"
+                           onclick="mostrarPago('efectivo')">
+                    Efectivo
+                </label>
+
+            </div>
+
+            <!-- TARJETA -->
+            <div id="tarjeta" class="hidden space-y-2 bg-white p-4 rounded shadow">
+                <input name="numero_tarjeta" placeholder="Número de tarjeta"
+                       class="w-full p-2 border rounded">
+
+                <input name="titular" placeholder="Nombre del titular"
+                       class="w-full p-2 border rounded">
+
+                <input name="expiracion" placeholder="Fecha expiración"
+                       class="w-full p-2 border rounded">
+
+                <input name="cvv" placeholder="CVV"
+                       class="w-full p-2 border rounded">
+            </div>
+
+            <!-- PAYPAL -->
+            <div id="paypal" class="hidden bg-white p-4 rounded shadow">
+                <input name="paypal_email" placeholder="Correo PayPal"
+                       class="w-full p-2 border rounded">
+            </div>
+
+            <!-- EFECTIVO -->
+            <div id="efectivo" class="hidden bg-white p-4 rounded shadow">
+                <p class="text-gray-700">
+                    Pago en oficina o contra entrega. Se confirmará manualmente.
+                </p>
+            </div>
+
+            <!-- BOTÓN -->
+            <button class="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600 transition">
+                Confirmar inscripción
+            </button>
+
+        </form>
+
+        <!-- JS -->
+        <script>
+        function mostrarPago(tipo) {
+
+            document.getElementById("tarjeta").classList.add("hidden");
+            document.getElementById("paypal").classList.add("hidden");
+            document.getElementById("efectivo").classList.add("hidden");
+
+            document.getElementById(tipo).classList.remove("hidden");
+        }
+        </script>
+
+    </div>
+
+</div>
+
+{% endblock %}
